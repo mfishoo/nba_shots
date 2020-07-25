@@ -12,11 +12,10 @@ export class ShotChart extends Component {
     playerId: PropTypes.number,
     minCount: PropTypes.number,
     chartType: PropTypes.string,
-    displayTolltip: PropTypes.bool,
+    displayTooltip: PropTypes.bool,
   };
 
-  componentDidMount() {
-    console.log('in shotchart componentDidMount');
+  componentDidUpdate() {
     nba.stats.shots({ PlayerID: this.props.playerId }).then((res) => {
       console.log(res);
       const final_shots = res.shot_Chart_Detail.map((shot) => ({
@@ -28,11 +27,12 @@ export class ShotChart extends Component {
       }));
 
       const courtSelection = d3.select('#shot-chart');
+      courtSelection.html('');
       const chart_court = court().width(500);
       const chart_shots = shots()
-        .shotRenderThreshold(2)
-        .displayToolTips(true)
-        .displayType('hexbin');
+        .shotRenderThreshold(this.props.minCount)
+        .displayToolTips(this.props.displayToolTip)
+        .displayType(this.props.chartType);
       courtSelection.call(chart_court);
       courtSelection.datum(final_shots).call(chart_shots);
     });
