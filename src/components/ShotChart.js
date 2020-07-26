@@ -9,7 +9,7 @@ window.d3_hexbin = { hexbin: hexbin };
 
 export class ShotChart extends Component {
   static propTypes = {
-    playerId: PropTypes.number,
+    playerId: PropTypes.number.isRequired,
     minCount: PropTypes.number,
     chartType: PropTypes.string,
     displayTooltip: PropTypes.bool,
@@ -23,15 +23,17 @@ export class ShotChart extends Component {
         y: (shot.locY + 50) / 10,
         action_type: shot.actionType,
         shot_distance: shot.shotDistance,
-        shot_made_flag: shot.shotMadFlag,
+        shot_made_flag: shot.shotMadeFlag,
       }));
+      console.log('final_shots');
+      console.log(final_shots);
 
       const courtSelection = d3.select('#shot-chart');
       courtSelection.html('');
       const chart_court = court().width(500);
       const chart_shots = shots()
         .shotRenderThreshold(this.props.minCount)
-        .displayToolTips(this.props.displayToolTip)
+        .displayToolTips(this.props.displayTooltip)
         .displayType(this.props.chartType);
       courtSelection.call(chart_court);
       courtSelection.datum(final_shots).call(chart_shots);

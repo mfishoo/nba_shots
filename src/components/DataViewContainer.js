@@ -18,7 +18,7 @@ export class DataViewContainer extends Component {
     this.setState({ chartType: e.target.value });
   };
   onTooltipChange = (displayTooltip) => {
-    console.log(displayTooltip);
+    console.log('displayTooltip' + displayTooltip);
     this.setState({ displayTooltip });
   };
   render() {
