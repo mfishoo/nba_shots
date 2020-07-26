@@ -16,6 +16,6 @@ Data fetched from [stats.nba.com](https://stats.nba.com/). <br/>
 
 
 ## Screeshots ##
-![Hexbin view](https://www.dropbox.com/s/zimxte2nvbb0sx7/Screen%20Shot%202020-07-26%20at%2011.38.12%20PM.png?dl=0)
+![Hexbin view](https://user-images.githubusercontent.com/65449903/88483780-c11d6b80-cf9c-11ea-970d-15acc0e929f5.png)
 ![Scatter view with tooltips on](https://photos.app.goo.gl/WjXCSvg6PHeHp2bg9 "Scatter view with tooltips on")
 ![Search list](https://photos.app.goo.gl/tVFqqnTcYbGg7cUY8 "Search list")
